@@ -36,7 +36,7 @@ public class Ejercicio3Test extends SpringTest{
 		barrio2 = new Barrio();
 		
 		direccion1 = new Direccion();
-		direccion2 = new Direccion();
+		direccion2 = new Direccion(); 
 		direccion3 = new Direccion();
 		
 		session = getSession();

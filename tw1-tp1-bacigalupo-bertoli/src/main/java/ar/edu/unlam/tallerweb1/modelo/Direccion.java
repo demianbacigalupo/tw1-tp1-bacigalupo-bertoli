@@ -6,6 +6,8 @@ import java.util.List;
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
@@ -15,6 +17,7 @@ import javax.persistence.OneToMany;
 public class Direccion {
 	
 	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long idDireccion;
 	private String calle;
 	private String numero;
@@ -33,6 +36,9 @@ public class Direccion {
 		this.barrio = barrio;
 	}
 	
+	public Direccion() {
+	}
+
 	public Long getIdDireccion() {
 		return idDireccion;
 	}
@@ -57,4 +63,13 @@ public class Direccion {
 	public void setNumero(String numero) {
 		this.numero = numero;
 	}
+
+	public List<Farmacia> getFarmacias() {
+		return farmacias;
+	}
+
+	public void setFarmacias(List<Farmacia> farmacias) {
+		this.farmacias = farmacias;
+	}
+	
 }
