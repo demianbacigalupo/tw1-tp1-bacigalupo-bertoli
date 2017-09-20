@@ -71,10 +71,10 @@ public class Ejercicio3Test extends SpringTest{
 		
 		List<Farmacia> resultado;
 		
-		resultado = session.createCriteria(Farmacia.class).
-					createAlias("Direccion", "Dir").
-					add(Restrictions.eq("Dir.Calle", "FakeStreet")).
-					list();
+		resultado = session.createCriteria(Farmacia.class)
+					.createAlias("direccion", "Dir")
+					.add(Restrictions.eq("Dir.calle", "Fake Street"))
+					.list();
 		
 		assertThat(resultado).hasSize(2);
 	}
