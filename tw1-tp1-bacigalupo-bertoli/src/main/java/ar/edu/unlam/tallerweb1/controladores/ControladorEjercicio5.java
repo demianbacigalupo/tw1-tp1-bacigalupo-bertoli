@@ -9,13 +9,22 @@ import org.springframework.web.servlet.ModelAndView;
 @Controller
 public class ControladorEjercicio5 {
 	@RequestMapping("/ejercicio5/{numero1}/{numero2}")
-	public ModelAndView Saludar(@PathVariable("numero1") Long num1 ,@PathVariable("numero2") Long num2){
-		Long num3;
+	public ModelAndView Saludar(@PathVariable("numero1") String num1 ,@PathVariable("numero2") String num2) throws Exception{
+		try {
+		Integer a = Integer.valueOf((String) num1);
+		Integer b = Integer.valueOf((String) num2);
+		Integer num3;
 		ModelMap modelo = new ModelMap();
-		modelo.addAttribute("numsum1", num1);
-		modelo.addAttribute("numsum2", num2);
-		num3 = num1 + num2;
-		modelo.addAttribute("numres3", num3);
+		modelo.put("numsum1", a);
+		modelo.put("numsum2", b);
+		num3 = a + b;
+		modelo.put("numres3", num3);
 		return new ModelAndView("ejercicio5", modelo);
+			
+		} catch (Exception e) {
+			ModelMap modelo = new ModelMap();
+			modelo.put("invalido", "No se puede hacer la operacion");
+			return new ModelAndView("operacionInvalida",modelo);
+		}
 	}
 }
