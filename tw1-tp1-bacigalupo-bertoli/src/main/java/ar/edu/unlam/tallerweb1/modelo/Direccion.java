@@ -1,9 +1,6 @@
 package ar.edu.unlam.tallerweb1.modelo;
 
-import java.util.ArrayList;
-import java.util.List;
 
-import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
@@ -11,7 +8,6 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
-import javax.persistence.OneToMany;
 
 @Entity
 public class Direccion {
@@ -25,10 +21,6 @@ public class Direccion {
 	@ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name = "idBarrio")
 	private Barrio barrio;
-	
-	
-	@OneToMany(mappedBy="direccion",cascade= CascadeType.ALL)
-	private List <Farmacia> farmacias =  new ArrayList<Farmacia>();
 	
 	public Direccion(String calle, String numero, Barrio barrio) {
 		this.calle = calle;
@@ -62,14 +54,6 @@ public class Direccion {
 	}
 	public void setNumero(String numero) {
 		this.numero = numero;
-	}
-
-	public List<Farmacia> getFarmacias() {
-		return farmacias;
-	}
-
-	public void setFarmacias(List<Farmacia> farmacias) {
-		this.farmacias = farmacias;
 	}
 	
 }

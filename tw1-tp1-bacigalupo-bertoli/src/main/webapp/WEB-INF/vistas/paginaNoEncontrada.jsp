@@ -7,6 +7,6 @@
 <title>Insert title here</title>
 </head>
 <body>
-	El resultado de ${operacion} ${numsum1} y ${numsum2} da ${numres3}.
+	<h1>${error}</h1>
 </body>
 </html>

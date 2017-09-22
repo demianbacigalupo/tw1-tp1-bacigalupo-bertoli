@@ -18,9 +18,6 @@ public class Punto {
 	private String latitud;
 	private String longitud;
 	
-	@OneToMany(mappedBy="geoLocalizacion",cascade= CascadeType.ALL)
-	private List <Farmacia> farmacias =  new ArrayList<Farmacia>();
-	
 	public Long getIdPunto() {
 		return idPunto;
 	}

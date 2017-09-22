@@ -7,6 +7,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToOne;
 
 @Entity
 public class Farmacia {
@@ -18,13 +19,10 @@ public class Farmacia {
 	private String telefono;
 	private String diaDeTurno;
 	
-	@ManyToOne(fetch= FetchType.LAZY)
-	@JoinColumn(name =  "idPunto")
+	@OneToOne
 	private Punto geoLocalizacion;
-	
 
-	@ManyToOne(fetch= FetchType.LAZY)
-	@JoinColumn(name =  "idDireccion")
+	@OneToOne
 	private Direccion direccion;
 	
 	
